@@ -1,24 +1,25 @@
 Summary:	GNOME Mahjongg
 Summary(pl.UTF-8):	Mahjongg dla GNOME
 Name:		gnome-mahjongg
-Version:	3.10.2
+Version:	3.12.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	81b4a36677a7ac865a64d9abd65b31f8
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	cc513e5b68989f8262e78d1a20e4e34e
 URL:		https://wiki.gnome.org/Apps/Mahjongg
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gtk+3-devel >= 3.4.0
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gnome-common
+BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	intltool >= 0.50.0
 BuildRequires:	librsvg-devel >= 2.32.0
 BuildRequires:	pkgconfig
 BuildRequires:	vala >= 2:0.16.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	gtk+3 >= 3.4.0
+Requires:	gtk+3 >= 3.10.0
 Requires:	hicolor-icon-theme
 Requires:	librsvg >= 2.32.0
 Provides:	gnome-games-mahjongg
@@ -75,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/appdata/gnome-mahjongg.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-mahjongg.gschema.xml
 %{_datadir}/gnome-mahjongg
-%{_desktopdir}/mahjongg.desktop
+%{_desktopdir}/gnome-mahjongg.desktop
 %{_iconsdir}/HighContrast/*/*/*.png
 %{_iconsdir}/hicolor/*/*/*.png
 %{_iconsdir}/hicolor/*/*/*.svg
