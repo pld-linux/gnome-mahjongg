@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Mahjongg dla GNOME
 Name:		gnome-mahjongg
 Version:	3.12.2
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.12/%{name}-%{version}.tar.xz
 # Source0-md5:	960dcfc885ddfc7aedaa9ad3a71f2677
@@ -77,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-mahjongg.gschema.xml
 %{_datadir}/gnome-mahjongg
 %{_desktopdir}/gnome-mahjongg.desktop
-%{_iconsdir}/HighContrast/*/*/*.png
-%{_iconsdir}/hicolor/*/*/*.png
-%{_iconsdir}/hicolor/*/*/*.svg
+%{_iconsdir}/HighContrast/*/apps/gnome-mahjongg.png
+%{_iconsdir}/hicolor/*/apps/gnome-mahjongg.png
+%{_iconsdir}/hicolor/scalable/apps/gnome-mahjongg.svg
 %{_mandir}/man6/gnome-mahjongg.6*
