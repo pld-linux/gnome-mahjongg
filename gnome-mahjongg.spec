@@ -1,12 +1,12 @@
 Summary:	GNOME Mahjongg
 Summary(pl.UTF-8):	Mahjongg dla GNOME
 Name:		gnome-mahjongg
-Version:	3.16.1
+Version:	3.18.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.16/%{name}-%{version}.tar.xz
-# Source0-md5:	3f23b76ac4cf9bf3c94ae9c7a6affcf7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.18/%{name}-%{version}.tar.xz
+# Source0-md5:	2b44ce67c1bdb63823930466a4ab7078
 URL:		https://wiki.gnome.org/Apps/Mahjongg
 BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
