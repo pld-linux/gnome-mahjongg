@@ -1,29 +1,33 @@
 Summary:	GNOME Mahjongg
 Summary(pl.UTF-8):	Mahjongg dla GNOME
 Name:		gnome-mahjongg
-Version:	3.22.0
+Version:	3.34.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.22/%{name}-%{version}.tar.xz
-# Source0-md5:	8493c4601d938dcbaa10b56b4a301486
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-mahjongg/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	0532e9babea412b45f28ae442555be61
 URL:		https://wiki.gnome.org/Apps/Mahjongg
-BuildRequires:	appstream-glib-devel
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	appstream-glib
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.13.2
-BuildRequires:	intltool >= 0.50.0
-BuildRequires:	librsvg-devel >= 2.32.0
+BuildRequires:	librsvg-devel >= 1:2.32.0
+BuildRequires:	meson >= 0.37.1
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.24.0
+BuildRequires:	vala-librsvg >= 1:2.32.0
+BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
 Requires:	gtk+3 >= 3.13.2
 Requires:	hicolor-icon-theme
-Requires:	librsvg >= 2.32.0
+Requires:	librsvg >= 1:2.32.0
 Provides:	gnome-games-mahjongg
 Provides:	gnome-games-mahjongg = 1:%{version}-%{release}
 Obsoletes:	gnome-games-mahjongg
@@ -41,20 +45,14 @@ par.
 %setup -q
 
 %build
-%{__intltoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure \
-	--disable-silent-rules
+%meson build
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -63,23 +61,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %glib_compile_schemas
-%update_icon_cache HighContrast
 %update_icon_cache hicolor
 
 %postun
 %glib_compile_schemas
-%update_icon_cache HighContrast
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS
+%doc NEWS README
 %attr(755,root,root) %{_bindir}/gnome-mahjongg
-%{_datadir}/appdata/gnome-mahjongg.appdata.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.mahjongg.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.Mahjongg.gschema.xml
 %{_datadir}/gnome-mahjongg
-%{_desktopdir}/gnome-mahjongg.desktop
-%{_iconsdir}/hicolor/*x*/apps/gnome-mahjongg.png
-%{_iconsdir}/hicolor/scalable/apps/gnome-mahjongg.svg
-%{_iconsdir}/hicolor/scalable/apps/gnome-mahjongg-symbolic.svg
+%{_datadir}/metainfo/org.gnome.Mahjongg.appdata.xml
+%{_desktopdir}/org.gnome.Mahjongg.desktop
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Mahjongg.svg
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.Mahjongg-symbolic.svg
 %{_mandir}/man6/gnome-mahjongg.6*
