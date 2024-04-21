@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.24.0
+BuildRequires:	vala-libadwaita >= 1
 BuildRequires:	vala-librsvg >= 1:2.46.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
