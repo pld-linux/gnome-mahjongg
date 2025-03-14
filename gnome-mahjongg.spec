@@ -2,12 +2,12 @@
 Summary:	GNOME Mahjongg
 Summary(pl.UTF-8):	Mahjongg dla GNOME
 Name:		gnome-mahjongg
-Version:	47.0
+Version:	47.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	https://download.gnome.org/sources/gnome-mahjongg/47/%{name}-%{version}.tar.xz
-# Source0-md5:	6fa164b91e140771162c2e95e0251d56
+# Source0-md5:	f7f8736f7379231e5f0dc204a09bc8c9
 URL:		https://wiki.gnome.org/Apps/Mahjongg
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools
@@ -18,7 +18,7 @@ BuildRequires:	librsvg-devel >= 1:2.46.0
 BuildRequires:	meson >= 0.59.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.24.0
 BuildRequires:	vala-libadwaita >= 1.5
@@ -47,14 +47,14 @@ par.
 %setup -q
 
 %build
-%meson build
+%meson
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang %{name} --with-gnome
 
